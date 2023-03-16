@@ -9,5 +9,4 @@ public class MVNRepositoryHomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    
 }
