@@ -1,10 +1,14 @@
+@search @smoke @google @regression
 Feature: Google search
+  #UserStory: SUP-93
 
+  @whatever
   Scenario: Verifying the results for google search
     Given I am on the google page
-    When I search for "Toyota"
-    Then I should see only "Toyota" related results
+    When I search for "Trump"
+    Then I should see only "Trump" related results
 
+    @test
     Scenario: Verifying image result
       Given I am on the google page
       When I search for "James Bond"
