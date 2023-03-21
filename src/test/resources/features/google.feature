@@ -12,3 +12,13 @@ Feature: Google search
       When I search for "James Bond"
       And I click on image option
       Then I should see only "James Bond" related images
+
+
+      @nothing
+      Scenario: TEst
+        Given testing this with
+        |hello|
+        |hi   |
+        |what |
+        |ok   |
+        Then do nothing

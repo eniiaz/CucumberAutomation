@@ -23,4 +23,10 @@ public class CashwiseLoginPage {
     @FindBy(xpath = "(//button[.='Sign in'])[2]")
     public WebElement signInButton;
 
+    @FindBy(xpath = "((//form)[2]//p)[1]")
+    public WebElement emailErrorMessage;
+
+    @FindBy(xpath = "((//form)[2]//p)[2]")
+    public WebElement passwordErrorMessage;
+
 }

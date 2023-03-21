@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import utilities.Driver;
 
+import java.util.List;
+
 public class Google_steps {
 
     @Given("I am on the google page")
@@ -31,6 +33,16 @@ public class Google_steps {
     public void i_should_see_only_related_images(String word) {
         System.out.println("Verifying the images for: " + word);
         Assert.fail("On purpose");
+    }
+
+
+    @Given("testing this with")
+    public void testing_this_with(List<String> items) {
+        System.out.println(items);
+    }
+    @Then("do nothing")
+    public void do_nothing() {
+        System.out.println("nothing");
     }
 
 
