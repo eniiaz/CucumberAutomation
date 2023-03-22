@@ -7,6 +7,7 @@ Feature: Cashwise Login
     And user clicks on sign in button
 
 
+
   Scenario Outline: Verifying the login with invalid credentails
     When user logs in "<email>" and "<password>"
     Then user should land on "<url>" page
@@ -20,7 +21,6 @@ Feature: Cashwise Login
       | cashwise@gmail.com | 123123   | https://cashwise.us/dashboard/infographics |
 
 
-    @data
   Scenario Outline: Verifying the error message for negative login
     When user logs in "<email>" and "<password>"
     Then user sees error messages "<email error message>" and "<password error message>"

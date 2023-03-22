@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class CashwiseLoginPage {
 
     public CashwiseLoginPage(){
@@ -28,5 +30,8 @@ public class CashwiseLoginPage {
 
     @FindBy(xpath = "((//form)[2]//p)[2]")
     public WebElement passwordErrorMessage;
+
+    @FindBy(xpath = "//h2[.='We offer']/..//h3")
+    public List<WebElement> benefitList;
 
 }
