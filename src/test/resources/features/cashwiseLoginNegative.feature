@@ -6,19 +6,17 @@ Feature: Cashwise Login
     Given user is on cashwise application
     And user clicks on sign in button
 
-
-
   Scenario Outline: Verifying the login with invalid credentails
     When user logs in "<email>" and "<password>"
     Then user should land on "<url>" page
 
     Examples:
       | email              | password | url                                        |
-#      | test               | test     | https://cashwise.us/main?showLogin=true    |
-#      | hi@test.com        | test     | https://cashwise.us/main?showLogin=true    |
+      | test               | test     | https://cashwise.us/main?showLogin=true    |
+      | hi@test.com        | test     | https://cashwise.us/main?showLogin=true    |
 #      |                    | test     | https://cashwise.us/main?showLogin=true    |
-      | hi@test.com        |          | https://cashwise.us/main?showLogin=true    |
-      | cashwise@gmail.com | 123123   | https://cashwise.us/dashboard/infographics |
+#      | hi@test.com        |          | https://cashwise.us/main?showLogin=true    |
+#      | cashwise@gmail.com | 123123   | https://cashwise.us/dashboard/infographics |
 
 
   Scenario Outline: Verifying the error message for negative login

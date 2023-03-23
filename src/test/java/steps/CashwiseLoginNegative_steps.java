@@ -8,6 +8,7 @@ import pages.CashwiseLoginPage;
 import utilities.Config;
 import utilities.Driver;
 import utilities.Flow;
+import utilities.MyLogger;
 
 public class CashwiseLoginNegative_steps {
 
@@ -25,6 +26,7 @@ public class CashwiseLoginNegative_steps {
 
     @When("user logs in {string} and {string}")
     public void user_logs_in_and(String email, String password) {
+        MyLogger.info("Logging into software");
         cashwiseLoginPage.emailInputBox.sendKeys(email);
         cashwiseLoginPage.passwordInputBox.sendKeys(password);
         cashwiseLoginPage.signInButton.click();
@@ -33,6 +35,7 @@ public class CashwiseLoginNegative_steps {
 
     @Then("user should land on {string} page")
     public void user_should_land_on_page(String url) {
+        MyLogger.warn("Verification of login");
         String actualURL = Driver.getDriver().getCurrentUrl();
         Assert.fail("on purpose");
         Assert.assertEquals(url, actualURL);
