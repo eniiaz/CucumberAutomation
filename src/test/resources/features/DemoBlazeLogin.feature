@@ -1,6 +1,5 @@
 Feature: Demo Blaze Login
 
-  @data
   Scenario: Verifying the login functionality positive
     Given user is on demo blaze application
     And user clicks on login button for demo blaze

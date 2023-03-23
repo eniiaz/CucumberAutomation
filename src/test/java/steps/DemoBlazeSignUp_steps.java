@@ -9,6 +9,7 @@ import pages.DemoBlazeHomePage;
 import utilities.Config;
 import utilities.Driver;
 import utilities.Flow;
+import utilities.MyLogger;
 
 import java.util.Random;
 
@@ -18,18 +19,23 @@ public class DemoBlazeSignUp_steps {
 
     @Given("user is on demo blaze application")
     public void user_is_on_demo_blaze_application() {
+        MyLogger.info("User is on demo blaze website");
         Driver.getDriver().get(Config.getValue("demoblazeURL"));
     }
     @Given("user clicks on sign up button")
     public void user_clicks_on_sign_up_button() {
+        MyLogger.warn("Clicking the sign up link");
         blazeHomePage.signUpBtn.click();
         Flow.wait(500);
     }
     @When("user enters credentials {string} and {string} and clicks sign up")
     public void user_enters_credentials_and_and_clicks_sign_up(String username, String password) {
+
         if (username.equals("placeholder")){
             username = username + new Random().nextInt(10000);
         }
+        MyLogger.warn("Entering Credentials: username:" + username + " pass: " + password);
+
         blazeHomePage.formUsernameInputBox.sendKeys(username);
         blazeHomePage.formPasswordInputBox.sendKeys(password);
         blazeHomePage.formSignUpBtn.click();
@@ -37,6 +43,7 @@ public class DemoBlazeSignUp_steps {
     }
     @Then("user should see alert message {string}")
     public void user_should_see_alert_message(String message) {
+        MyLogger.info("Verifying the alert messages");
         Alert signUpAlert = Driver.getDriver().switchTo().alert();
         String actualMessage = signUpAlert.getText();
         Assert.assertEquals(message, actualMessage);

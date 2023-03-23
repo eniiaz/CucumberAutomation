@@ -1,5 +1,6 @@
 Feature: Demo Blaze Sign up
 
+  @signup
   Scenario Outline: Verifying account sign up
     Given user is on demo blaze application
     And user clicks on sign up button
