@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class DemoBlazeHomePage {
 
     public DemoBlazeHomePage(){
@@ -35,5 +37,25 @@ public class DemoBlazeHomePage {
     @FindBy(xpath = "//button[.='Log in']")
     public WebElement formLoginBtn;
 
+    @FindBy(xpath = "//div[@id='tbodyid']//h4/a")
+    public List<WebElement> products;
+
+    @FindBy(linkText = "Add to cart")
+    public WebElement addToCartBtn;
+
+    @FindBy(xpath = "//div[@id='tbodyid']/h2")
+    public WebElement productTitle;
+
+    @FindBy(xpath = "//div[@id='tbodyid']/h3")
+    public WebElement productPrice;
+
+    @FindBy(id = "cartur")
+    public WebElement cartButton;
+
+    @FindBy(xpath = "//tbody//td[2]")
+    public WebElement firstProductTitle;
+
+    @FindBy(xpath = "//tbody//td[3]")
+    public WebElement getFirstProductPrice;
 
 }
