@@ -1,4 +1,4 @@
-package tests;
+package studyMate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +10,6 @@ public class StudyMate {
 
     // Database setup
     private List<String> groups = new ArrayList<>();
-    private List<String> students = new ArrayList<>();
-    private List<String> courses = new ArrayList<>();
-    private List<String> teachers = new ArrayList<>();
 
     // Business Layer: APIs
     //User Story 1: As an Admin, I should be able to create a group

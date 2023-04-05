@@ -1,4 +1,6 @@
-package tests;
+package studyMate;
+
+import studyMate.StudyMate;
 
 public class StudyMateFrontend {
 
