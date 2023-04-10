@@ -1,5 +1,9 @@
 package cashwise;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import entities.CustomResponse;
+import entities.RequestBody;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -9,15 +13,18 @@ import org.junit.Test;
 public class Login {
 
     @Test
-    public void authorization(){
-        String body = "{\n" +
-                "  \"email\": \"test@tester.com\",\n" +
-                "  \"password\": \"123456\"\n" +
-                "}";
-        Response response = RestAssured.given().contentType(ContentType.JSON).body(body).post("https://backend.cashwise.us/api/myaccount/auth/login");
+    public void authorization() throws JsonProcessingException {
+        RequestBody requestBody = new RequestBody();
+        requestBody.setEmail("test@tester.com");
+        requestBody.setPassword("123456");
+
+        Response response = RestAssured.given().contentType(ContentType.JSON).body(requestBody).post("https://backend.cashwise.us/api/myaccount/auth/login");
         System.out.println(response.statusCode());
         System.out.println();
-        System.out.println(response.asString());
+        ObjectMapper mapper = new ObjectMapper();
+        CustomResponse customReponse = mapper.readValue(response.asString(), CustomResponse.class);
+        System.out.println(customReponse.getJwt_token());
+        System.out.println(customReponse.getMessage());
     }
 
     @Test
@@ -39,7 +46,6 @@ public class Login {
             }
         }
 
-
     }
 
 
@@ -53,6 +59,7 @@ public class Login {
         Response response = RestAssured.given().contentType(ContentType.JSON).body(body).post("https://reqres.in/api/users");
         System.out.println(response.statusCode());
         System.out.println(response.asString());
+
     }
 
 }
