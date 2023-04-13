@@ -15,5 +15,9 @@ public class CustomResponse {
     private String bank_account_name;
     private String id;
     private int balance;
+    private String phone_number;
+    private String email;
+    private String jsonString;
+    private int statusCode;
 
 }
