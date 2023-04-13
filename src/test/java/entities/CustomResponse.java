@@ -12,5 +12,8 @@ public class CustomResponse {
     private String company_name;
     private String seller_name;
     private boolean income;
+    private String bank_account_name;
+    private String id;
+    private int balance;
 
 }
