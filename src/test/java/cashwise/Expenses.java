@@ -41,7 +41,7 @@ public class Expenses {
 
         Assert.assertEquals(200, APIRunner.getCustomResponse().getStatusCode());
     }
-    
+
     @Test
     public void verifySellers(){
         String path = "/api/myaccount/sellers/all";

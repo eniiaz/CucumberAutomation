@@ -1,3 +1,4 @@
+@now
 Feature: Cashwise Login
 
   User Story: CASH231

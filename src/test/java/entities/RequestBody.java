@@ -15,5 +15,10 @@ public class RequestBody {
     private String bank_account_name;
     private String description;
     private int balance;
+    private String product_title;
+    private int product_price;
+    private int service_type_id;
+    private int category_id;
+    private String product_description;
 
 }
