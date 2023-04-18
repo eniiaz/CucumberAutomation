@@ -6,6 +6,10 @@ import lombok.Data;
 public class RequestBody {
 
     private String password;
+    private boolean flag;
+    private String name_tag;
+    private String category_title;
+    private String category_description;
     private String email;
     private String company_name;
     private String seller_name;

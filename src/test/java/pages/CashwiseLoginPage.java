@@ -34,4 +34,6 @@ public class CashwiseLoginPage {
     @FindBy(xpath = "//h2[.='We offer']/..//h3")
     public List<WebElement> benefitList;
 
+
+
 }

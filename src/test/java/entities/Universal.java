@@ -1,14 +1,14 @@
-package tests;
+package entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
+public class Universal {
 
-    int id;
-    String email;
-    String first_name;
-    String avatar;
+    private String nameTag;
+    private String companyName;
+    private Universal company;
+
 }

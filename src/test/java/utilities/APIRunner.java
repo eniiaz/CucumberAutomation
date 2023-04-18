@@ -64,6 +64,24 @@ public class APIRunner {
         }
     }
 
+    public static void runPUT(String path, RequestBody requestBody){
+        String url = Config.getValue("cashwiseBackend") + path;
+        String token = Config.getValue("cashwiseToken");
+        Response response = RestAssured.given().auth().oauth2(token).
+                contentType(ContentType.JSON).body(requestBody).put(url);
+        System.out.println("PUT Status: " + response.statusCode());
+
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            customResponse = mapper.readValue(response.asString(), CustomResponse.class);
+            customResponse.setJsonString(response.asString());
+            customResponse.setStatusCode(response.statusCode());
+        } catch (JsonProcessingException e) {
+            System.out.println("Couldn't map json to Custom Response");
+        }
+    }
+
+
     public static void runDELETE(String path){
         String token = Config.getValue("cashwiseToken");
         String url = Config.getValue("cashwiseBackend") + path;
