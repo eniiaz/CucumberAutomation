@@ -8,6 +8,8 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
+import java.util.Map;
+
 public class APIRunner {
     private static CustomResponse customResponse;
     private static CustomResponse [] responseList;
@@ -15,6 +17,21 @@ public class APIRunner {
         String token = Config.getValue("cashwiseToken");
         String url = Config.getValue("cashwiseBackend") + path;
         Response response = RestAssured.given().auth().oauth2(token).get(url);
+        System.out.println("GET Status: " + response.statusCode());
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            customResponse = mapper.readValue(response.asString(), CustomResponse.class);
+            customResponse.setJsonString(response.asString());
+            customResponse.setStatusCode(response.statusCode());
+        } catch (JsonProcessingException e) {
+            System.out.println("Couldn't convert JSON to CustomResponse");
+        }
+    }
+
+    public static void runGET(String path, Map<String, Object> params){
+        String token = Config.getValue("cashwiseToken");
+        String url = Config.getValue("cashwiseBackend") + path;
+        Response response = RestAssured.given().auth().oauth2(token).params(params).get(url);
         System.out.println("GET Status: " + response.statusCode());
         ObjectMapper mapper = new ObjectMapper();
         try {

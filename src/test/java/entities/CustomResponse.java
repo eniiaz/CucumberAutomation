@@ -26,5 +26,6 @@ public class CustomResponse {
     private String jsonString;
     private int statusCode;
     private List<Universal> tags;
+    private List<Universal> responses;
 
 }

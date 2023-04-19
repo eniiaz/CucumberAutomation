@@ -5,7 +5,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 import utilities.APIRunner;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,19 +18,11 @@ public class Clients {
         System.out.println(APIRunner.getCustomResponse().getClient_name());
         System.out.println(APIRunner.getCustomResponse().getEmail());
 
-        System.out.println(APIRunner.getCustomResponse().getNameTag());
-
         for (int i = 0; i < APIRunner.getCustomResponse().getTags().size(); i++){
             System.out.println(APIRunner.getCustomResponse().getTags().get(i).getNameTag());
             System.out.println(APIRunner.getCustomResponse().getTags().get(i).getCompany().getCompanyName());
         }
-
     }
-
-
-
-
-
 
     @Test
     public void getClientParam(){
@@ -45,7 +36,4 @@ public class Clients {
         Response response = RestAssured.given().auth().oauth2(token).params(params).get(path);
         System.out.println(response.asPrettyString());
     }
-
-
-
 }
